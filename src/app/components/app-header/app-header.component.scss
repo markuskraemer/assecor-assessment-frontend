@@ -1,0 +1,45 @@
+app-header {
+  height: 133px;
+
+  padding-left: 280px;
+  padding-right: 262px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .buttons {
+    margin-left: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .search-field {
+    position: relative;
+    width: 220px;
+    height: 50px;
+    margin-left: auto;
+
+    input {
+      padding-left: 10px;
+      padding-right: 50px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #bbbbbb;
+      border-radius: 2px;
+    }
+
+    &::after {
+      content: '🔍';
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+  }
+}
