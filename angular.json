@@ -8,6 +8,7 @@
   "projects": {
     "starwars": {
       "projectType": "application",
+
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
@@ -34,7 +35,8 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": ["src/styles/styles.scss"],
+            "stylePreprocessorOptions": { "includePaths": ["src"] }
           },
           "configurations": {
             "production": {

@@ -1,0 +1,25 @@
+@use 'functions';
+
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: 'Roboto';
+  font-size: clamp(8px, calc(16px / 1920px) * 100vw, 18px);
+}
+
+.page-header {
+  height: 385px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-title {
+  font-weight: bold;
+  font-size: 75px;
+  line-height: 90px;
+  background-color: pink;
+}

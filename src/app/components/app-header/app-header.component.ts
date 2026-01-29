@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { provideRouter, RouterOutlet, RouterLink, withHashLocation } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,4 +10,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppHeaderComponent {}
+export class AppHeaderComponent {
+  public readonly router = inject(Router);
+}

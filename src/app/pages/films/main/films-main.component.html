@@ -1,0 +1,13 @@
+<div class="page-header">
+  <div class="page-title">Filme</div>
+</div>
+
+<div class="cards">
+  @for (film of films(); track $index) {
+    <card
+      [imageSrc]="`images/films/${$index % 6}.png`"
+      [label]="film.title"
+      [description]="'descripion'"
+    ></card>
+  }
+</div>

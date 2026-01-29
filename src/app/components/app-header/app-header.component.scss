@@ -1,17 +1,20 @@
+@use 'styles/functions' as fn;
+
 app-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  height: 133px;
-  padding-left: 280px;
-  padding-right: 262px;
+  justify-content: center;
+  height: 100%;
+  padding-left: fn.px2rem(280px);
+  padding-right: fn.px2rem(262px);
 
-  filter: drop-shadow(0, 3px 6px, #00000029);
+  filter: drop-shadow(0, 3px 6px, #000000);
 
   .buttons {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    cursor: pointer;
     margin-left: 76px;
     gap: 25px;
     font-size: 14px;

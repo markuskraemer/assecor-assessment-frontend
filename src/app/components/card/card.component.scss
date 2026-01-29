@@ -1,0 +1,41 @@
+card {
+  display: grid;
+  grid-template-rows: 348px 1fr;
+  background: rgba(#bbbbbb, 0.24);
+  width: 424px;
+  height: 530px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 24px;
+  }
+
+  .label {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bold;
+    margin-top: 22px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 16px;
+  }
+
+  .more {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: 22px;
+  }
+}

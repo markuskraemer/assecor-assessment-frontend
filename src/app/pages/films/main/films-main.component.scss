@@ -1,0 +1,15 @@
+@use 'styles/functions' as fn;
+
+films-main {
+  display: block;
+  height: 100%;
+  padding-left: fn.px2rem(280px);
+  padding-right: fn.px2rem(262px);
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(424px, max-content));
+    justify-content: center;
+    gap: fn.px2rem(52px);
+  }
+}
