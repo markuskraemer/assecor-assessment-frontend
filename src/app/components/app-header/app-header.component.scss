@@ -1,17 +1,18 @@
 app-header {
-  height: 133px;
-
-  padding-left: 280px;
-  padding-right: 262px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  height: 133px;
+  padding-left: 280px;
+  padding-right: 262px;
+
+  filter: drop-shadow(0, 3px 6px, #00000029);
 
   .buttons {
-    margin-left: 76px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-left: 76px;
     gap: 25px;
     font-size: 14px;
     line-height: 17px;
@@ -32,8 +33,7 @@ app-header {
       border-radius: 2px;
     }
 
-    &::after {
-      content: '🔍';
+    .icon {
       position: absolute;
       right: 0.75rem;
       top: 50%;
