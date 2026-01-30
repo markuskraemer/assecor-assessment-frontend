@@ -1,0 +1,45 @@
+@use 'styles/index' as *;
+
+film-details {
+  display: block;
+  height: 100%;
+  padding-left: px2rem(280px);
+  padding-right: px2rem(262px);
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    .left {
+      padding-right: 152px;
+      box-sizing: border-box;
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 32px;
+      }
+
+      .line,
+      .description {
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      .description {
+        margin-top: 34px;
+      }
+    }
+
+    .right {
+      padding-top: 10px;
+    }
+
+    .bottom {
+      grid-column: 1 / -1;
+      details-buttons-row {
+        margin-bottom: 46px;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 @use 'styles/functions' as fn;
 
-films-main {
+film-list {
   display: block;
   height: 100%;
   padding-left: fn.px2rem(280px);
@@ -11,5 +11,9 @@ films-main {
     grid-template-columns: repeat(auto-fit, minmax(424px, max-content));
     justify-content: center;
     gap: fn.px2rem(52px);
+
+    card {
+      cursor: pointer;
+    }
   }
 }

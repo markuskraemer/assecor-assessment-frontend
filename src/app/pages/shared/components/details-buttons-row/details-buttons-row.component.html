@@ -1,0 +1,9 @@
+@if (buttonLabels().length > 0) {
+  <div class="label">{{ label }}</div>
+  <div class="buttons">
+    @for (labels of buttonLabels(); track $index) {
+      <standard-button [label]="`label ${$index}`"></standard-button>
+    }
+    <standard-button [label]="'...'"></standard-button>
+  </div>
+}

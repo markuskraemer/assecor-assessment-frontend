@@ -5,6 +5,7 @@
 <div class="cards">
   @for (film of films(); track $index) {
     <card
+      (click)="showDetails($index)"
       [imageSrc]="`images/films/${$index % 6}.png`"
       [label]="film.title"
       [description]="'descripion'"

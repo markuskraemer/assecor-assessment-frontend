@@ -1,7 +1,9 @@
+@use 'styles/index' as *;
+
 card {
   display: grid;
   grid-template-rows: 348px 1fr;
-  background: rgba(#bbbbbb, 0.24);
+  background: $gray; //  rgba(#bbbbbb, 0.24);
   width: 424px;
   height: 530px;
 

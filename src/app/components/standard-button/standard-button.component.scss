@@ -1,0 +1,15 @@
+@use 'styles/index' as *;
+
+standard-button {
+  display: block;
+  height: 50px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $gray;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}

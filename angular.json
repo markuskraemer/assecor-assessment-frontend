@@ -16,7 +16,8 @@
           "changeDetection": "OnPush",
           "viewEncapsulation": "None",
           "displayBlock": true,
-          "prefix": ""
+          "prefix": "",
+          "type": "component"
         }
       },
       "root": "",

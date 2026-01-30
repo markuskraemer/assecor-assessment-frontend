@@ -1,5 +1,4 @@
-@use 'functions';
-
+@use 'index' as *;
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
@@ -7,19 +6,33 @@ body {
   margin: 0;
   height: 100%;
   font-family: 'Roboto';
-  font-size: clamp(8px, calc(16px / 1920px) * 100vw, 18px);
+  //font-size: clamp(8px, calc(16px / 1920px) * 100vw, 18px);
+  color: $fg-color;
 }
 
 .page-header {
   height: 385px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.page-sub-title {
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 30px;
 }
 
 .page-title {
   font-weight: bold;
   font-size: 75px;
   line-height: 90px;
-  background-color: pink;
+}
+
+.horizontal-line {
+  width: 54px;
+  height: 1px;
+  background-color: $fg-color;
+  margin-top: 18px;
 }

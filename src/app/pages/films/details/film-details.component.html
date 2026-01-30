@@ -1,0 +1,27 @@
+@let film = myFilm();
+<div class="page-header">
+  <div class="page-sub-title">Filmdetails</div>
+  <div class="horizontal-line"></div>
+  <div class="page-title">{{ film.title }}</div>
+  <div class="page-sub-title">{{ `Episode ${film.episode_id}` }}</div>
+</div>
+<div class="content">
+  <div class="left">
+    <div class="title">Details:</div>
+    <div class="line"><b>Director:</b> {{ film.director }}</div>
+    <div class="line"><b>Produzenten:</b> {{ film.producer }}</div>
+    <div class="line"><b>Erscheinungsdatum:</b> {{ film.release_date }}</div>
+    <div class="description">
+      {{ film.opening_crawl }}
+    </div>
+  </div>
+  <div class="right">
+    <slideshow [imageSrc]="`images/films/${+(filmId() || 0) % 6}.png`"></slideshow>
+  </div>
+  <div class="bottom">
+    <details-buttons-row [label]="'Charaktere:'" [urls]="film.characters"></details-buttons-row>
+    <details-buttons-row [label]="'Planeten:'" [urls]="film.planets"></details-buttons-row>
+    <details-buttons-row [label]="'Raumschiffe:'" [urls]="film.starships"></details-buttons-row>
+    <details-buttons-row [label]="'Fahrzeuge:'" [urls]="film.vehicles"></details-buttons-row>
+  </div>
+</div>
