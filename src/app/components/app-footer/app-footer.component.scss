@@ -1,0 +1,17 @@
+@use 'styles/index' as *;
+
+app-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 79px;
+  padding-left: px2rem(280px);
+
+  font-size: 14px;
+  font-weight: bold;
+  color: $gray;
+  line-height: 17px;
+
+  border-top: 1px solid rgba($fg-color, 0.15);
+}

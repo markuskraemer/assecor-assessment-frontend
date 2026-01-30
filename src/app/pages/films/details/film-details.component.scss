@@ -3,13 +3,14 @@
 film-details {
   display: block;
   height: 100%;
-  padding-left: px2rem(280px);
-  padding-right: px2rem(262px);
 
   .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
+
+    padding-left: px2rem(280px);
+    padding-right: px2rem(262px);
 
     .left {
       padding-right: 152px;

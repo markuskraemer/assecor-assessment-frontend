@@ -2,9 +2,10 @@
 
 film-list {
   display: block;
-  height: 100%;
+
   padding-left: fn.px2rem(280px);
   padding-right: fn.px2rem(262px);
+  padding-bottom: 99px;
 
   .cards {
     display: grid;

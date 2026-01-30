@@ -1,14 +1,13 @@
-@use 'styles/functions' as fn;
+@use 'styles/index' as *;
 
 app-header {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding-left: fn.px2rem(280px);
-  padding-right: fn.px2rem(262px);
-
-  filter: drop-shadow(0, 3px 6px, #000000);
+  padding-left: px2rem(280px);
+  padding-right: px2rem(262px);
+  border-bottom: 1px solid rgba($fg-color, 0.15);
 
   .buttons {
     display: flex;
@@ -19,6 +18,11 @@ app-header {
     gap: 25px;
     font-size: 14px;
     line-height: 17px;
+
+    .button.active {
+      text-decoration-line: underline;
+      text-underline-offset: 4px;
+    }
   }
 
   .search-field {
