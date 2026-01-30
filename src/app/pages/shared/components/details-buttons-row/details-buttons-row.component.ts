@@ -1,7 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
+  Output,
   signal,
   ViewEncapsulation,
 } from '@angular/core';
@@ -21,5 +23,11 @@ export class DetailsButtonsRowComponent {
   @Input() public label = '';
   @Input() public set urls(value: string[]) {
     this.buttonLabels.set(value.slice(0, 5));
+  }
+
+  @Output() public readonly addClick = new EventEmitter<void>();
+
+  public onAddClick() {
+    this.addClick.emit();
   }
 }

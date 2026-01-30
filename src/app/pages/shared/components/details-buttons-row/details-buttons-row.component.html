@@ -4,6 +4,6 @@
     @for (labels of buttonLabels(); track $index) {
       <standard-button [label]="`label ${$index}`"></standard-button>
     }
-    <standard-button [label]="'...'"></standard-button>
+    <standard-button [label]="'...'" (click)="onAddClick()"></standard-button>
   </div>
 }

@@ -19,8 +19,16 @@
     <slideshow [imageSrc]="`images/films/${+(filmId() || 0) % 6}.png`"></slideshow>
   </div>
   <div class="bottom">
-    <details-buttons-row [label]="'Charaktere:'" [urls]="film.characters"></details-buttons-row>
-    <details-buttons-row [label]="'Planeten:'" [urls]="film.planets"></details-buttons-row>
+    <details-buttons-row
+      [label]="'Charaktere:'"
+      [urls]="film.characters"
+      (addClick)="overlayService.openOverlay('add-film')"
+    ></details-buttons-row>
+    <details-buttons-row
+      [label]="'Planeten:'"
+      [urls]="film.planets"
+      (addClick)="overlayService.openOverlay('add-planet')"
+    ></details-buttons-row>
     <details-buttons-row [label]="'Raumschiffe:'" [urls]="film.starships"></details-buttons-row>
     <details-buttons-row [label]="'Fahrzeuge:'" [urls]="film.vehicles"></details-buttons-row>
   </div>

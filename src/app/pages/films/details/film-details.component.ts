@@ -11,6 +11,7 @@ import { map } from 'rxjs';
 import * as filmsJson from './films.json';
 import { DetailsButtonsRowComponent } from '../../shared/components/details-buttons-row/details-buttons-row.component';
 import { SlideshowComponent } from '../../../components/slideshow/slideshow.component';
+import { OverlayService } from '../../../services/overlay.service';
 
 @Component({
   selector: 'film-details',
@@ -21,7 +22,8 @@ import { SlideshowComponent } from '../../../components/slideshow/slideshow.comp
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilmDetailsComponent {
-  private route = inject(ActivatedRoute);
+  private readonly route = inject(ActivatedRoute);
+  public readonly overlayService = inject(OverlayService);
 
   public filmId = toSignal(this.route.paramMap.pipe(map((params) => params.get('filmId'))));
 
