@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { OverlayType } from '../data/model/overlay.types';
+import { OverlayType } from '../model/overlay.types';
 import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })

@@ -1,5 +1,5 @@
-import { Film, FilmListApiResponse } from './model/film.interfaces';
-import { FilmDetails, FilmDetailsDto } from './model/filmDetails.interfaces';
+import { Film, FilmListApiResponse } from './film.interfaces';
+import { FilmDetails, FilmDetailsDto } from './filmDetails.interfaces';
 
 export function parseFilmListResponse(response: FilmListApiResponse): Film[] {
   return response.results.map(
@@ -39,20 +39,4 @@ export function parseFilmDetails(dto: FilmDetailsDto): FilmDetails {
     createdAt: dto.created,
     editedAt: dto.edited,
   };
-}
-
-function splitNumber(urls: string[], phrase: string) {
-  return urls
-    .map((url) => {
-      const match = url.match(/\/${phrase}\/(\d+)\/$/);
-      return match ? parseInt(match[1], 10) : NaN;
-    })
-    .filter((id) => !isNaN(id));
-}
-
-function split(urls: string[], phrase: string) {
-  return urls.map((url) => {
-    const match = url.match(/\/${phrase}\/(\d+)\/$/);
-    return match ? match[1] : '';
-  });
 }

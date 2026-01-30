@@ -1,11 +1,11 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { tapResponse } from '@ngrx/operators';
-import { SwapiState } from './model/swapi.initerfaces';
+import { SwapiState } from './swapi.initerfaces';
 import { inject } from '@angular/core';
-import { ApiService } from './api.service';
+import { ApiService } from '../services/api.service';
+import { FilmListApiResponse } from './film.interfaces';
+import { FilmDetailsDto } from './filmDetails.interfaces';
 import { parseFilmDetails, parseFilmListResponse } from './helpers';
-import { FilmListApiResponse } from './model/film.interfaces';
-import { FilmDetailsDto } from './model/filmDetails.interfaces';
 
 const initialStarwarsState: SwapiState = {
   filmDetails: {},
