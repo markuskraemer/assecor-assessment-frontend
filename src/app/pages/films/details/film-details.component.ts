@@ -1,17 +1,22 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
+  effect,
   inject,
+  OnInit,
+  Signal,
   signal,
   ViewEncapsulation,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
-import * as filmsJson from './films.json';
+import { filter, map, take, tap } from 'rxjs';
 import { DetailsButtonsRowComponent } from '../../shared/components/details-buttons-row/details-buttons-row.component';
 import { SlideshowComponent } from '../../../components/slideshow/slideshow.component';
 import { OverlayService } from '../../../services/overlay.service';
+import { SwapiStore } from '../../../data/starwars.store';
+import { isString } from '../../../utils/utils';
 
 @Component({
   selector: 'film-details',
@@ -21,11 +26,26 @@ import { OverlayService } from '../../../services/overlay.service';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilmDetailsComponent {
+export class FilmDetailsComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   public readonly overlayService = inject(OverlayService);
+  public readonly store = inject(SwapiStore);
 
-  public filmId = toSignal(this.route.paramMap.pipe(map((params) => params.get('filmId'))));
+  public readonly filmId = toSignal(
+    this.route.paramMap.pipe(
+      map((params) => params.get('filmId')),
+      filter((value) => isString(value)),
+    ),
+  ) as Signal<string>;
 
-  public myFilm = signal(filmsJson.results[0]); // draft!
+  public readonly filmDetails = computed(() => this.store.filmDetails()[this.filmId()]);
+
+  public ngOnInit() {
+    this.store.loadFilmDetails(this.filmId());
+  }
+
+  constructor() {
+    effect(() => console.log('FILMID: ', this.filmId()));
+    effect(() => console.log('myFilm: ', this.filmDetails()));
+  }
 }

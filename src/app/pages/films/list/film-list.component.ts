@@ -2,13 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  signal,
+  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import * as filmsJson from './films.json';
 import { CardComponent } from '../../../components/card/card.component';
-import { Film } from '../../../data/model/film.interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SwapiStore } from '../../../data/starwars.store';
+import { extractId } from '../../../utils/utils';
 
 @Component({
   selector: 'film-list',
@@ -18,15 +18,26 @@ import { ActivatedRoute, Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilmListComponent {
-  private router = inject(Router);
-  private route = inject(ActivatedRoute);
+export class FilmListComponent implements OnInit {
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+  public readonly store = inject(SwapiStore);
 
-  public films = signal(filmsJson.results.filter((item, index) => index <= 4));
+  public readonly filmList = this.store.filmList;
 
-  constructor() {}
+  public ngOnInit(): void {
+    this.store.loadFilmList();
+  }
 
-  public showDetails(filmIdx: number) {
-    this.router.navigate(['details', filmIdx], { relativeTo: this.route });
+  public showDetails(filmUrl: string) {
+    const filmIdx = extractId(filmUrl);
+    if (filmIdx >= 0) {
+      this.router.navigate(['details', String(filmIdx)], { relativeTo: this.route });
+    }
+  }
+
+  public getImageSrc(filmUrl: string) {
+    const filmIdx = extractId(filmUrl) || 1;
+    return `images/films/${((filmIdx - 1) % 6) + 1}.png`;
   }
 }

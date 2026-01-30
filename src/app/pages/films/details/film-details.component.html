@@ -1,35 +1,39 @@
-@let film = myFilm();
-<div class="page-header">
-  <div class="page-sub-title">Filmdetails</div>
-  <div class="horizontal-line"></div>
-  <div class="page-title">{{ film.title }}</div>
-  <div class="page-sub-title">{{ `Episode ${film.episode_id}` }}</div>
-</div>
-<div class="content">
-  <div class="left">
-    <div class="title">Details:</div>
-    <div class="line"><b>Director:</b> {{ film.director }}</div>
-    <div class="line"><b>Produzenten:</b> {{ film.producer }}</div>
-    <div class="line"><b>Erscheinungsdatum:</b> {{ film.release_date }}</div>
-    <div class="description">
-      {{ film.opening_crawl }}
+@if (filmDetails(); as film) {
+  <div class="page-header">
+    <div class="page-sub-title">Filmdetails</div>
+    <div class="horizontal-line"></div>
+    <div class="page-title">{{ film.title }}</div>
+    <div class="page-sub-title">{{ `Episode ${film.episode}` }}</div>
+  </div>
+  <div class="content">
+    <div class="left">
+      <div class="title">Details:</div>
+      <div class="line"><b>Director:</b> {{ film.director }}</div>
+      <div class="line"><b>Produzenten:</b> {{ film.producer }}</div>
+      <div class="line"><b>Erscheinungsdatum:</b> {{ film.releaseDate }}</div>
+      <div class="description">
+        {{ film.openingCrawl }}
+      </div>
+    </div>
+    <div class="right">
+      <slideshow [imageSrc]="`images/films/${((+filmId() - 1) % 6) + 1}.png`"></slideshow>
+    </div>
+    <div class="bottom">
+      <details-buttons-row
+        [label]="'Charaktere:'"
+        [urls]="film.characterUrls"
+        (addClick)="overlayService.openOverlay('add-film')"
+      ></details-buttons-row>
+      <details-buttons-row
+        [label]="'Planeten:'"
+        [urls]="film.planetUrls"
+        (addClick)="overlayService.openOverlay('add-planet')"
+      ></details-buttons-row>
+      <details-buttons-row
+        [label]="'Raumschiffe:'"
+        [urls]="film.starshipUrls"
+      ></details-buttons-row>
+      <details-buttons-row [label]="'Fahrzeuge:'" [urls]="film.vehicleUrls"></details-buttons-row>
     </div>
   </div>
-  <div class="right">
-    <slideshow [imageSrc]="`images/films/${+(filmId() || 0) % 6}.png`"></slideshow>
-  </div>
-  <div class="bottom">
-    <details-buttons-row
-      [label]="'Charaktere:'"
-      [urls]="film.characters"
-      (addClick)="overlayService.openOverlay('add-film')"
-    ></details-buttons-row>
-    <details-buttons-row
-      [label]="'Planeten:'"
-      [urls]="film.planets"
-      (addClick)="overlayService.openOverlay('add-planet')"
-    ></details-buttons-row>
-    <details-buttons-row [label]="'Raumschiffe:'" [urls]="film.starships"></details-buttons-row>
-    <details-buttons-row [label]="'Fahrzeuge:'" [urls]="film.vehicles"></details-buttons-row>
-  </div>
-</div>
+}

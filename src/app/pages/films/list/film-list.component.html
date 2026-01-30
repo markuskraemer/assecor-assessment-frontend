@@ -3,10 +3,10 @@
 </div>
 
 <div class="cards">
-  @for (film of films(); track $index) {
+  @for (film of filmList(); track $index) {
     <card
-      (click)="showDetails($index)"
-      [imageSrc]="`images/films/${$index % 6}.png`"
+      (click)="showDetails(film.url)"
+      [imageSrc]="getImageSrc(film.url)"
       [label]="film.title"
       [description]="'descripion'"
     ></card>
