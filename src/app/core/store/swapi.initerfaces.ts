@@ -6,5 +6,5 @@ export interface SwapiState {
   filmDetails: Record<string, FilmDetails>;
   filmList: Film[];
   planets: Record<string, any>;
-  loadingPages: number[];
+  loadingUrls: string[];
 }

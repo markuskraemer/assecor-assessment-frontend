@@ -14,9 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 import { filter, map, take, tap } from 'rxjs';
 import { DetailsButtonsRowComponent } from '../../shared/components/details-buttons-row/details-buttons-row.component';
 import { SlideshowComponent } from '../../../components/slideshow/slideshow.component';
-import { OverlayService } from '../../../services/overlay.service';
-import { SwapiStore } from '../../../data/starwars.store';
-import { isString } from '../../../utils/utils';
+import { getFilmImageSrc, isString } from '../../shared/utils/utils';
+import { OverlayService } from '../../../core/services/overlay.service';
+import { SwapiStore } from '../../../core/store/swapi.store';
 
 @Component({
   selector: 'film-details',
@@ -30,6 +30,7 @@ export class FilmDetailsComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   public readonly overlayService = inject(OverlayService);
   public readonly store = inject(SwapiStore);
+  public readonly getFilmImageSrc = getFilmImageSrc;
 
   public readonly filmId = toSignal(
     this.route.paramMap.pipe(
@@ -47,5 +48,7 @@ export class FilmDetailsComponent implements OnInit {
   constructor() {
     effect(() => console.log('FILMID: ', this.filmId()));
     effect(() => console.log('myFilm: ', this.filmDetails()));
+
+    effect(() => console.log('loading: ', this.store.loadingUrls()));
   }
 }

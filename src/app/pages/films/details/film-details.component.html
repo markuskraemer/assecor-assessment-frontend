@@ -16,24 +16,31 @@
       </div>
     </div>
     <div class="right">
-      <slideshow [imageSrc]="`images/films/${((+filmId() - 1) % 6) + 1}.png`"></slideshow>
+      <slideshow [imageSrc]="getFilmImageSrc(+filmId())"></slideshow>
     </div>
     <div class="bottom">
       <details-buttons-row
         [label]="'Charaktere:'"
+        [buttonLabels]="['Luke Skywalker', 'C3-P0', 'R2D2']"
         [urls]="film.characterUrls"
         (addClick)="overlayService.openOverlay('add-film')"
       ></details-buttons-row>
       <details-buttons-row
         [label]="'Planeten:'"
+        [buttonLabels]="['Arid', 'Tatooine']"
         [urls]="film.planetUrls"
         (addClick)="overlayService.openOverlay('add-planet')"
       ></details-buttons-row>
       <details-buttons-row
         [label]="'Raumschiffe:'"
+        [buttonLabels]="['Executor', 'Sentinel-class Landing craft', 'Death Star']"
         [urls]="film.starshipUrls"
       ></details-buttons-row>
-      <details-buttons-row [label]="'Fahrzeuge:'" [urls]="film.vehicleUrls"></details-buttons-row>
+      <details-buttons-row
+        [label]="'Fahrzeuge:'"
+        [buttonLabels]="['Sand Crawler', 'Snowspeeder', 'AT-AT']"
+        [urls]="film.vehicleUrls"
+      ></details-buttons-row>
     </div>
   </div>
 }
