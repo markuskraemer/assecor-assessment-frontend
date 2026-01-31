@@ -1,6 +1,8 @@
 @use 'styles/index' as *;
 
 film-details {
+  @include fade-in;
+
   display: block;
   height: 100%;
 

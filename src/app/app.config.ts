@@ -6,9 +6,10 @@ import {
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
 import { registerLocaleData } from '@angular/common';
+
 import localeDe from '@angular/common/locales/de';
+import { routes } from './app.routes';
 
 registerLocaleData(localeDe);
 export const appConfig: ApplicationConfig = {

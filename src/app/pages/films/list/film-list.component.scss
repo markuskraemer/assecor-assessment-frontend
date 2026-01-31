@@ -1,17 +1,19 @@
-@use 'styles/functions' as fn;
+@use 'styles/index' as *;
 
 film-list {
+  @include fade-in;
+
   display: block;
 
-  padding-left: fn.px2rem(280px);
-  padding-right: fn.px2rem(262px);
+  padding-left: px2rem(280px);
+  padding-right: px2rem(262px);
   padding-bottom: 99px;
 
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(424px, max-content));
     justify-content: center;
-    gap: fn.px2rem(52px);
+    gap: px2rem(52px);
 
     card {
       cursor: pointer;
