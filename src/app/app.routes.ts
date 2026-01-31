@@ -2,13 +2,14 @@ import { Routes } from '@angular/router';
 import { FilmAddComponent } from './pages/films/film-add/film-add.component';
 import { PlanetAddComponent } from './pages/planets/planet-add/planet-add.component';
 import { CharacterAddComponent } from './pages/characters/character-add/character-add.component';
+import { HomeMainComponent } from './pages/home/main/home-main.component';
 
 export const routes: Routes = [
   /////////////////////////////
   // main routes
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.routes').then((m) => m.homeRoutes),
+    component: HomeMainComponent,
   },
   {
     path: 'films',

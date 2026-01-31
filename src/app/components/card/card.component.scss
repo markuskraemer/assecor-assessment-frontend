@@ -1,19 +1,17 @@
 @use 'styles/index' as *;
 
 card {
-  $card-width: 424px;
   $pd: 24px;
 
   display: grid;
   grid-template-rows: 348px 1fr;
   background: $gray;
-  width: $card-width;
+  width: var(--card-width);
   height: 530px;
 
-  img {
-    width: $card-width;
-    height: 100%;
-    object-fit: cover;
+  .image {
+    background-position: center;
+    background-size: cover;
   }
 
   .content {
@@ -34,7 +32,7 @@ card {
   [description] {
     font-size: 14px;
     line-height: 17px;
-    width: calc($card-width - 2 * $pd);
+    width: calc(var(--card-width) - 2 * $pd);
 
     div {
       white-space: nowrap;

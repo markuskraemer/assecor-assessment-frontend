@@ -5,8 +5,8 @@ app-header {
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding-left: 280px;
-  padding-right: 262px;
+  padding-left: var(--app-pd-left);
+  padding-right: var(--app-pd-right);
   border-bottom: 1px solid rgba($fg-color, 0.15);
 
   .buttons {

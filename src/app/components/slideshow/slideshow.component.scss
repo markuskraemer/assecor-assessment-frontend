@@ -6,8 +6,9 @@ slideshow {
   gap: 16px;
 
   .img {
-    width: 698px;
-    height: 374px;
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .bullets {

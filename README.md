@@ -1,5 +1,27 @@
 # Starwars
 
+```bash
+Der Beitrag zur Assesor Assessment Frontend Challenge von Markus Krämer
+
+In der App werden die Resourcen Films, People (Characters) und Planets, der Swapi Api an. Die Anzeige der einzelnen Panes erfolgt über Routing.
+Die App ist noch ausbaufähig. Mögliche Verbesserungen sind:
+
+  • Besseres Styling, insbesondere der Forms.
+  • Besseres Responsivität.
+  • Dummy Bilder ersetzen.
+  • Animationen verbessern.
+  • Suche benutztbar machen.
+  • [List Seiten] Man sieht nur jeweils die erste Seite der Ressourcen (z.B. people). Es sollte eine Möglichkeit hinzugefügt werden, die anderen Seiten anzuzeigen.
+  • [Details Seiten] Die meisten Verweise sind Dummys. Sie sollten aus den Backend Daten gefüttert werden.
+  • [Details Seiten] Die Slideshow sollte bedienbar gemacht werden.
+  • [Details Seiten] Aufruf von Route zu nicht existentem Detail sollte abgefangen werden.
+  • Eventuelle Fehler beim Laden der Daten werden zwar an den NotificationService übermittelt; eine Anzeige der Fehler (z.B. per Toast) fehlt aber.
+  • Tests hinzufügen.
+  • Bedienbarkeit verbessern (keyboard)
+
+
+```
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
 ## Development server
@@ -35,25 +57,3 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

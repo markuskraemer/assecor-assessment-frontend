@@ -46,19 +46,26 @@ export const SwapiStore = signalStore(
       getPlanetByUrl: (url: string) => findByUrl(state.planetList(), url),
 
       loadFilmList: () => {
-        if (state.filmList().length > 0) {
+        const url = '/films/';
+        if (state.filmList().length > 0 || state.loadingUrls().includes(url)) {
           return;
         }
-
+        patchState(state, { loadingUrls: [...state.loadingUrls(), url] });
         apiService
-          .get<FilmListApiResponse>('/films/')
+          .get<FilmListApiResponse>(url)
           .pipe(
             take(1),
             tapResponse({
               next: (response) => {
-                patchState(state, { filmList: parseFilmListResponse(response) });
+                patchState(state, {
+                  filmList: parseFilmListResponse(response),
+                  loadingUrls: [...state.loadingUrls().filter((item) => item !== url)],
+                });
               },
               error: (err) => {
+                patchState(state, {
+                  loadingUrls: [...state.loadingUrls().filter((item) => item !== url)],
+                });
                 notificationService.show('Fehler beim Laden der Filme');
               },
             }),
@@ -67,19 +74,29 @@ export const SwapiStore = signalStore(
       },
 
       loadCharacterList: () => {
-        if (state.characterList().length > 0) {
+        const url = '/people/';
+
+        if (state.characterList().length > 0 || state.loadingUrls().includes(url)) {
           return;
         }
+        patchState(state, { loadingUrls: [...state.loadingUrls(), url] });
 
         apiService
-          .get<CharacterListApiResponse>('/people/')
+          .get<CharacterListApiResponse>(url)
           .pipe(
             take(1),
             tapResponse({
               next: (response) => {
-                patchState(state, { characterList: parseCharacterListApiResponse(response) });
+                patchState(state, {
+                  characterList: parseCharacterListApiResponse(response),
+                  loadingUrls: [...state.loadingUrls().filter((item) => item !== url)],
+                });
               },
               error: (err) => {
+                patchState(state, {
+                  loadingUrls: [...state.loadingUrls().filter((item) => item !== url)],
+                });
+
                 notificationService.show('Fehler beim Laden der Charakter');
               },
             }),
@@ -88,19 +105,28 @@ export const SwapiStore = signalStore(
       },
 
       loadPlanetList: () => {
-        if (state.planetList().length > 0) {
+        const url = '/planets/';
+        if (state.planetList().length > 0 || state.loadingUrls().includes(url)) {
           return;
         }
+        patchState(state, { loadingUrls: [...state.loadingUrls(), url] });
 
         apiService
-          .get<PlanetListApiResponse>('/planets/')
+          .get<PlanetListApiResponse>(url)
           .pipe(
             take(1),
             tapResponse({
               next: (response) => {
-                patchState(state, { planetList: parsePlanetListApiResponse(response) });
+                patchState(state, {
+                  planetList: parsePlanetListApiResponse(response),
+                  loadingUrls: [...state.loadingUrls().filter((item) => item !== url)],
+                });
               },
               error: (err) => {
+                patchState(state, {
+                  loadingUrls: [...state.loadingUrls().filter((item) => item !== url)],
+                });
+
                 notificationService.show('Fehler beim Laden der Planeten');
               },
             }),

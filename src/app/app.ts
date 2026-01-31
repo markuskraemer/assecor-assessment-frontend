@@ -3,7 +3,6 @@ import {
   Component,
   inject,
   OnInit,
-  signal,
   ViewEncapsulation,
 } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
