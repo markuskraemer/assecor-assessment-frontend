@@ -13,6 +13,15 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/films/films.routes').then((m) => m.filmsRoutes),
   },
   {
+    path: 'characters',
+    loadChildren: () =>
+      import('./pages/characters/characters.routes').then((m) => m.charactersRoutes),
+  },
+  {
+    path: 'planets',
+    loadChildren: () => import('./pages/planets/planets.routes').then((m) => m.planetsRoutes),
+  },
+  {
     path: '**',
     redirectTo: '/home',
     pathMatch: 'full',

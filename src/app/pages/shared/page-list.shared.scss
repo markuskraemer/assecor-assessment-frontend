@@ -1,6 +1,6 @@
 @use 'styles/index' as *;
 
-film-list {
+.list-container {
   @include fade-in;
 
   display: block;

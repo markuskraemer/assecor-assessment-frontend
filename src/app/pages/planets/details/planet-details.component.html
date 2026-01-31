@@ -1,0 +1,40 @@
+<div class="details-container">
+  @if (details(); as planet) {
+    <div class="page-header">
+      <div class="page-sub-title">Planetendetails</div>
+      <div class="horizontal-line"></div>
+      <div class="page-title">{{ planet.name }}</div>
+    </div>
+    <div class="content">
+      <div class="left">
+        <div class="title">Details:</div>
+        <div class="line"><b>Durchmesser:</b> {{ planet.diameter }}</div>
+        <div class="line"><b>Umlaufzeit:</b> {{ planet.orbitalPeriod }}</div>
+        <div class="line"><b>Rotationsdauer:</b> {{ planet.rotationPeriod }}</div>
+        <div class="line"><b>Klima:</b> {{ planet.climate }}</div>
+        <div class="line"><b>Population:</b> {{ planet.population }}</div>
+        <div class="line row">
+          <b>Heimatplanet:</b> <standard-button [label]="'Luke Skywalker'"></standard-button>
+        </div>
+      </div>
+      <div class="right">
+        <slideshow [imageSrc]="getPlanetImageSrc(id())"></slideshow>
+      </div>
+      <div class="bottom">
+        <details-buttons-row
+          [label]="'Filme:'"
+          [buttonLabels]="['Film 1', 'Film 2', 'Film 3', 'Film 4', 'Film 5']"
+          [urls]="planet.films"
+          (addClick)="overlayService.openOverlay('add-film')"
+        ></details-buttons-row>
+        <details-buttons-row
+          [label]="'Charaktere:'"
+          [buttonLabels]="['Luke Skywalker', 'C3-P0', 'R2D2']"
+          [urls]="planet.residends"
+        ></details-buttons-row>
+      </div>
+    </div>
+  } @else {
+    <spinner></spinner>
+  }
+</div>

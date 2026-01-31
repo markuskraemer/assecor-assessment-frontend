@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { StandardButtonComponent } from '../../../../components/standard-button/standard-button.component';
 import { SwapiStore } from '../../../../core/store/swapi.store';
-import { extractId } from '../../utils/utils';
+import { extractId } from '../../../../core/utils/utls';
 
 @Component({
   selector: 'details-buttons-row',

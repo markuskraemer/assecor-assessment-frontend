@@ -1,11 +1,10 @@
-export interface FilmListApiResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
+import { ApiResponse, Item } from './swapi.interfaces';
+
+export interface FilmListApiResponse extends ApiResponse {
   results: FilmDto[];
 }
 
-export interface FilmDto {
+export interface FilmDto extends Item {
   title: string;
   episode_id: number;
   opening_crawl: string;
@@ -18,13 +17,9 @@ export interface FilmDto {
   vehicles: string[];
   characters: string[];
   planets: string[];
-
-  url: string;
-  created: string;
-  edited: string;
 }
 
-export interface Film {
+export interface Film extends Item {
   title: string;
   episodeId: number;
   openingCrawl: string;
@@ -32,13 +27,9 @@ export interface Film {
   producer: string;
   releaseDate: string;
 
-  speciesUrls: string[];
-  starshipUrls: string[];
-  vehicleUrls: string[];
-  characterUrls: string[];
-  planetUrls: string[];
-
-  url: string;
-  createdAt: string;
-  editedAt: string;
+  species: string[];
+  starships: string[];
+  vehicles: string[];
+  characters: string[];
+  planets: string[];
 }

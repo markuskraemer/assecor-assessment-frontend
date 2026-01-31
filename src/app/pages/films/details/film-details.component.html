@@ -1,48 +1,50 @@
-@if (filmDetails(); as film) {
-  <div class="page-header">
-    <div class="page-sub-title">Filmdetails</div>
-    <div class="horizontal-line"></div>
-    <div class="page-title">{{ film.title }}</div>
-    <div class="page-sub-title">{{ `Episode ${film.episode}` }}</div>
-  </div>
-  <div class="content">
-    <div class="left">
-      <div class="title">Details:</div>
-      <div class="line"><b>Director:</b> {{ film.director }}</div>
-      <div class="line"><b>Produzenten:</b> {{ film.producer }}</div>
-      <div class="line"><b>Erscheinungsdatum:</b> {{ film.releaseDate | date }}</div>
-      <div class="description">
-        {{ film.openingCrawl }}
+<div class="details-container">
+  @if (details(); as film) {
+    <div class="page-header">
+      <div class="page-sub-title">Filmdetails</div>
+      <div class="horizontal-line"></div>
+      <div class="page-title">{{ film.title }}</div>
+      <div class="page-sub-title">{{ `Episode ${film.episodeId}` }}</div>
+    </div>
+    <div class="content">
+      <div class="left">
+        <div class="title">Details:</div>
+        <div class="line"><b>Director:</b> {{ film.director }}</div>
+        <div class="line"><b>Produzenten:</b> {{ film.producer }}</div>
+        <div class="line"><b>Erscheinungsdatum:</b> {{ film.releaseDate | date }}</div>
+        <div class="description">
+          {{ film.openingCrawl }}
+        </div>
+      </div>
+      <div class="right">
+        <slideshow [imageSrc]="getFilmImageSrc(id())"></slideshow>
+      </div>
+      <div class="bottom">
+        <details-buttons-row
+          [label]="'Charaktere:'"
+          [buttonLabels]="['Luke Skywalker', 'C3-P0', 'R2D2']"
+          [urls]="film.characters"
+          (addClick)="overlayService.openOverlay('add-film')"
+        ></details-buttons-row>
+        <details-buttons-row
+          [label]="'Planeten:'"
+          [buttonLabels]="['Arid', 'Tatooine']"
+          [urls]="film.planets"
+          (addClick)="overlayService.openOverlay('add-planet')"
+        ></details-buttons-row>
+        <details-buttons-row
+          [label]="'Raumschiffe:'"
+          [buttonLabels]="['Executor', 'Sentinel-class Landing craft', 'Death Star']"
+          [urls]="film.starships"
+        ></details-buttons-row>
+        <details-buttons-row
+          [label]="'Fahrzeuge:'"
+          [buttonLabels]="['Sand Crawler', 'Snowspeeder', 'AT-AT']"
+          [urls]="film.vehicles"
+        ></details-buttons-row>
       </div>
     </div>
-    <div class="right">
-      <slideshow [imageSrc]="getFilmImageSrc(+filmId())"></slideshow>
-    </div>
-    <div class="bottom">
-      <details-buttons-row
-        [label]="'Charaktere:'"
-        [buttonLabels]="['Luke Skywalker', 'C3-P0', 'R2D2']"
-        [urls]="film.characterUrls"
-        (addClick)="overlayService.openOverlay('add-film')"
-      ></details-buttons-row>
-      <details-buttons-row
-        [label]="'Planeten:'"
-        [buttonLabels]="['Arid', 'Tatooine']"
-        [urls]="film.planetUrls"
-        (addClick)="overlayService.openOverlay('add-planet')"
-      ></details-buttons-row>
-      <details-buttons-row
-        [label]="'Raumschiffe:'"
-        [buttonLabels]="['Executor', 'Sentinel-class Landing craft', 'Death Star']"
-        [urls]="film.starshipUrls"
-      ></details-buttons-row>
-      <details-buttons-row
-        [label]="'Fahrzeuge:'"
-        [buttonLabels]="['Sand Crawler', 'Snowspeeder', 'AT-AT']"
-        [urls]="film.vehicleUrls"
-      ></details-buttons-row>
-    </div>
-  </div>
-} @else {
-  <spinner></spinner>
-}
+  } @else {
+    <spinner></spinner>
+  }
+</div>

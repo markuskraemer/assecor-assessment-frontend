@@ -1,6 +1,6 @@
 @use 'styles/index' as *;
 
-film-details {
+.details-container {
   @include fade-in;
 
   display: block;
@@ -13,6 +13,13 @@ film-details {
 
     padding-left: px2rem(280px);
     padding-right: px2rem(262px);
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
 
     .left {
       padding-right: 152px;

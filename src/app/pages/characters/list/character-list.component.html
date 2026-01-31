@@ -1,6 +1,6 @@
 <div class="list-container">
   <div class="page-header">
-    <div class="page-title">Filme</div>
+    <div class="page-title">Charaktere</div>
   </div>
 
   @if (list().length > 0) {
@@ -9,12 +9,12 @@
         <card
           (click)="showDetails(item.url)"
           [imageSrc]="getImageSrc(item.url)"
-          [label]="item.title"
+          [label]="item.name"
         >
           <div description>
-            <div>Director: {{ item.director }}</div>
-            <div>Produzenten: {{ item.producer }}</div>
-            <div>Erscheinungsdatum: {{ item.releaseDate | date }}</div>
+            <div>Größe: {{ item.height }}</div>
+            <div>Gewicht: {{ item.mass }}</div>
+            <div>Geburtsjahr: {{ item.birthYear }}</div>
           </div>
         </card>
       }

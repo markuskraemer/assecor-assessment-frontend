@@ -11,26 +11,31 @@ import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { DetailsButtonsRowComponent } from '../../shared/components/details-buttons-row/details-buttons-row.component';
 import { SlideshowComponent } from '../../../components/slideshow/slideshow.component';
+import { getPlanetImageSrc } from '../../shared/utils/imageUtils';
 import { OverlayService } from '../../../core/services/overlay.service';
 import { SwapiStore } from '../../../core/store/swapi.store';
-import { DatePipe } from '@angular/common';
 import { SpinnerComponent } from '../../../components/spinner/spinner.component';
-import { getFilmImageSrc } from '../../shared/utils/imageUtils';
+import { StandardButtonComponent } from '../../../components/standard-button/standard-button.component';
 import { isString } from '../../../core/utils/utls';
 
 @Component({
-  selector: 'film-details',
-  imports: [DetailsButtonsRowComponent, SlideshowComponent, DatePipe, SpinnerComponent],
-  templateUrl: './film-details.component.html',
+  selector: 'planet-details',
+  imports: [
+    DetailsButtonsRowComponent,
+    SlideshowComponent,
+    SpinnerComponent,
+    StandardButtonComponent,
+  ],
+  templateUrl: './planet-details.component.html',
   styleUrl: '../../shared/page-details.shared.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilmDetailsComponent {
+export class PlanetDetailsComponent {
   private readonly route = inject(ActivatedRoute);
   public readonly overlayService = inject(OverlayService);
   public readonly store = inject(SwapiStore);
-  public readonly getFilmImageSrc = getFilmImageSrc;
+  public readonly getPlanetImageSrc = getPlanetImageSrc;
 
   public readonly id = toSignal(
     this.route.paramMap.pipe(
@@ -40,5 +45,5 @@ export class FilmDetailsComponent {
     ),
   ) as Signal<number>;
 
-  public readonly details = computed(() => this.store.getFilmById(this.id()));
+  public readonly details = computed(() => this.store.getPlanetById(this.id()));
 }
