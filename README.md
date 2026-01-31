@@ -3,7 +3,8 @@
 ```bash
 Der Beitrag zur Assesor Assessment Frontend Challenge von Markus Krämer
 
-In der App werden die Resourcen Films, People (Characters) und Planets, der Swapi Api an. Die Anzeige der einzelnen Panes erfolgt über Routing.
+In der App werden die Resourcen Films, People (Characters) und Planets der Swapi Api angezeigt.
+Die Anzeige der einzelnen Panels erfolgt über Routing.
 Die App ist noch ausbaufähig. Mögliche Verbesserungen sind:
 
   • Besseres Styling, insbesondere der Forms.
@@ -16,6 +17,7 @@ Die App ist noch ausbaufähig. Mögliche Verbesserungen sind:
   • [Details Seiten] Die Slideshow sollte bedienbar gemacht werden.
   • [Details Seiten] Aufruf von Route zu nicht existentem Detail sollte abgefangen werden.
   • Eventuelle Fehler beim Laden der Daten werden zwar an den NotificationService übermittelt; eine Anzeige der Fehler (z.B. per Toast) fehlt aber.
+  • Generell Fehler abfangen und handlen.
   • Tests hinzufügen.
   • Bedienbarkeit verbessern (keyboard)
 
