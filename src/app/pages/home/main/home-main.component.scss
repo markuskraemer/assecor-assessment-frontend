@@ -1,7 +1,12 @@
+@use 'styles/index' as *;
+
 home-main {
+  @include fade-in;
+
   display: flex;
   height: 100%;
-  background: #10172c;
+  background: $fg-color;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }

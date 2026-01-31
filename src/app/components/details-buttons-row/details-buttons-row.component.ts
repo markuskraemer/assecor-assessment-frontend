@@ -9,9 +9,9 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { StandardButtonComponent } from '../../../../components/standard-button/standard-button.component';
-import { SwapiStore } from '../../../../core/store/swapi.store';
-import { extractId } from '../../../../core/utils/utls';
+import { StandardButtonComponent } from '../standard-button/standard-button.component';
+import { SwapiStore } from '../../core/store/swapi.store';
+import { extractId } from '../../core/utils/utls';
 
 @Component({
   selector: 'details-buttons-row',
@@ -24,20 +24,11 @@ import { extractId } from '../../../../core/utils/utls';
 export class DetailsButtonsRowComponent {
   @Input() public buttonLabels: string[] = [];
   @Input() public label = '';
-  @Input() public set urls(value: string[]) {
-    this._urls.set(value.slice(0, this.buttonCount));
-  }
 
   @Output() public readonly addClick = new EventEmitter<void>();
   @Output() public readonly labelButtonClick = new EventEmitter<number>();
 
   public readonly store = inject(SwapiStore);
-
-  private readonly buttonCount = 4;
-  private readonly _urls = signal<string[]>([]);
-  public readonly _buttonLabels = computed(() => {
-    return this._urls().map((url) => this.store.filmList()[extractId(url)]);
-  });
 
   public onAddClick() {
     this.addClick.emit();

@@ -9,7 +9,7 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs';
-import { DetailsButtonsRowComponent } from '../../shared/components/details-buttons-row/details-buttons-row.component';
+import { DetailsButtonsRowComponent } from '../../../components/details-buttons-row/details-buttons-row.component';
 import { SlideshowComponent } from '../../../components/slideshow/slideshow.component';
 import { getPlanetImageSrc } from '../../shared/utils/imageUtils';
 import { OverlayService } from '../../../core/services/overlay.service';
