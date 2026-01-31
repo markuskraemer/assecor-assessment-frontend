@@ -1,0 +1,6 @@
+<div class="image" [style.background-image]="'url(' + imageSrc + ')'"></div>
+<div class="content">
+  <div class="label">{{ label }}</div>
+  <ng-content select="[description]" class="description"></ng-content>
+  <div class="more">Mehr Informationen...</div>
+</div>

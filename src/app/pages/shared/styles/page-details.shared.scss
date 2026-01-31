@@ -1,0 +1,57 @@
+@use 'styles/index' as *;
+
+.details-container {
+  @include fade-in;
+
+  display: block;
+  height: 100%;
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    padding-left: var(--app-pd-left);
+    padding-right: var(--app-pd-right);
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .left {
+      padding-right: 152px;
+      box-sizing: border-box;
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 32px;
+      }
+
+      .line,
+      .description {
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      .description {
+        margin-top: 34px;
+      }
+    }
+
+    .right {
+      padding-top: 10px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .bottom {
+      grid-column: 1 / -1;
+      details-buttons-row {
+        margin-bottom: 46px;
+      }
+    }
+  }
+}

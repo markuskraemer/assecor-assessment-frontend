@@ -1,0 +1,52 @@
+@use 'styles/index' as *;
+
+app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-left: var(--app-pd-left);
+  padding-right: var(--app-pd-right);
+  border-bottom: 1px solid rgba($fg-color, 0.15);
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    margin-left: 76px;
+    gap: 25px;
+    font-size: 14px;
+    line-height: 17px;
+
+    .button.active {
+      text-decoration-line: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  .search-field {
+    position: relative;
+    width: 220px;
+    height: 50px;
+    margin-left: auto;
+
+    input {
+      padding-left: 10px;
+      padding-right: 50px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #bbbbbb;
+      border-radius: 2px;
+    }
+
+    .icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+  }
+}

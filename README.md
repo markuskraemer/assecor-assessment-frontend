@@ -1,43 +1,48 @@
-# Frontend test (DE)
- 
-## Zielsetzung
-Zur Wahl stehen folgende APIs:
-- https://swapi.dev/
-- http://ergast.com/mrd/
+# Starwars
 
-Ziel ist es, eine Webanwendung zu erstellen, welche die Daten der Schnittstellen visualisiert. Im Fall der SWAPI könnte man mit einer Liste der Filme beginnen, und sich über auftretende Charaktere weiter vertiefen. Es ist nicht erforderlich, alle Ressourcen der Schnittstelle zu verwerten, aber es sollte zumindest zu einer Master-Detail Beziehung kommen, mit welcher von einer Ressource, auf die Detailansicht einer anderen referenziert wird.
-Bitte richte dich bei der Umsetzung nach den Mockups unter folgendem Link:
-https://xd.adobe.com/view/b3c98134-11a8-44c2-5dd2-477b8550307f-c5f8/screen/c8fb4386-9d0d-4913-87e0-703d19d75589/Charaktere .
-Bei den Eingabemasken für neue Elemente geht es nur um die UI Umsetzung, da die Schnittstelle keine derartige Funktionalität anbietet.
+```bash
+Der Beitrag zur Assesor Assessment Frontend Challenge von Markus Krämer
 
-## Akzeptanzkriterien
-- Die Webanwendung zeigt Ressourcen der gewählten API an
-- Es werden mindestens 3 Root-Ressourcen angesprochen und visualisiert
-- Es wurde ein Anwendungs-Framework verwendet (Angular 2+, Blazor, Vue)
-- Die Anwendung ist responsive und skaliert auf Bildschirmgrößen entsprechend
-- Die Anwendung liegt unter Source-control (Git, TFS, DevOps)
+In der App werden die Resourcen Films, People (Characters) und Planets der Swapi Api angezeigt.
+Die Anzeige der einzelnen Panels erfolgt über Routing.
+Die App ist noch ausbaufähig. Mögliche Verbesserungen sind:
 
-## Abgabeform
-- Link zu einem Repository welches die Anwendung und ein README beinhaltet (Github, Gitlab, Devops)
+  • Besseres Styling, insbesondere der Forms.
+  • Besseres Responsivität.
+  • Dummy Bilder ersetzen.
+  • Animationen verbessern.
+  • Suche benutztbar machen.
+  • [List Seiten] Man sieht nur jeweils die erste Seite der Ressourcen (z.B. people). Es sollte eine Möglichkeit hinzugefügt werden, die anderen Seiten anzuzeigen.
+  • [Details Seiten] Die meisten Verweise sind Dummys. Sie sollten aus den Backend Daten gefüttert werden.
+  • [Details Seiten] Die Slideshow sollte bedienbar gemacht werden.
+  • [Details Seiten] Aufruf von Route zu nicht existentem Detail sollte abgefangen werden.
+  • Eventuelle Fehler beim Laden der Daten werden zwar an den NotificationService übermittelt; eine Anzeige der Fehler (z.B. per Toast) fehlt aber.
+  • Generell Fehler abfangen und handlen.
+  • Tests hinzufügen.
+  • Bedienbarkeit verbessern (A11y)
+  • Internationalisierung (i18n)
 
-# Frontend test (EN)
 
-## main goal
-Choosing one of the following APIs:
-- https://swapi.dev/
-- http://ergast.com/mrd/
+```
 
-your job is to create a simple web application, which visualizes the API data. In case of SWAPI, one way might be to start with a list of movies, and then navigate your way down via characters or other entities. You do not have to use all the resources the API is offering you, but there should be atleast one or two layers of master-detail relationship.
-Please follow the mockups under the following link:
-https://xd.adobe.com/view/b3c98134-11a8-44c2-5dd2-477b8550307f-c5f8/screen/c8fb4386-9d0d-4913-87e0-703d19d75589/Charaktere .
-The input masks for new elements are only about the UI implementation, since the interface does not offer such functionality.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
-## acceptance criteria
-- the application runs and shows data of the selected API
-- there are atleast 3 consumed API root resources
-- you have used an application framework (Angular 2+, Blazor, Vue)
-- the application uses responsive design and scales properly woth changing screen sizes/resolutions
-- the code is under source control (Git, TFS, DevOps)
+## Development server
 
-## hand-in
-- Send us a link to your repository containing your code and a README
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.

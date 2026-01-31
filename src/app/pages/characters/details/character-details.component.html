@@ -1,0 +1,48 @@
+<div class="details-container">
+  @if (details(); as character) {
+    <div class="page-header">
+      <div class="page-sub-title">Charakterdetails</div>
+      <div class="horizontal-line"></div>
+      <div class="page-title">{{ character.name }}</div>
+    </div>
+    <div class="content">
+      <div class="left">
+        <div class="title">Details:</div>
+        <div class="line"><b>Größe:</b> {{ character.height }}</div>
+        <div class="line"><b>Gewicht:</b> {{ character.mass }}</div>
+        <div class="line"><b>Haarfarbe:</b> {{ character.hairColor }}</div>
+        <div class="line"><b>Augenfarbe:</b> {{ character.eyeColor }}</div>
+        <div class="line"><b>Geburtsjahr:</b> {{ character.birthYear }}</div>
+        <div class="line"><b>Geschlecht:</b> {{ character.gender }}</div>
+        <div class="line row">
+          <b>Heimatplanet:</b>
+          <standard-button
+            [label]="getHomeworld()?.name || '...'"
+            (click)="gotoHomeworldPlanet()"
+          ></standard-button>
+        </div>
+      </div>
+      <div class="right">
+        <slideshow [imageSrc]="getCharacterImageSrc(id())"></slideshow>
+      </div>
+      <div class="bottom">
+        <details-buttons-row
+          [label]="'Filme:'"
+          [buttonLabels]="['Film 1', 'Film 2', 'Film 3', 'Film 4', 'Film 5']"
+          (addClick)="overlayService.openOverlay('add-film')"
+          (labelButtonClick)="navService.gotoDetails('films', $event)"
+        ></details-buttons-row>
+        <details-buttons-row
+          [label]="'Raumschiffe:'"
+          [buttonLabels]="['Executor', 'Sentinel-class Landing craft', 'Death Star']"
+        ></details-buttons-row>
+        <details-buttons-row
+          [label]="'Fahrzeuge:'"
+          [buttonLabels]="['Sand Crawler', 'Snowspeeder', 'AT-AT']"
+        ></details-buttons-row>
+      </div>
+    </div>
+  } @else {
+    <spinner></spinner>
+  }
+</div>

@@ -1,0 +1,25 @@
+<div class="list-container">
+  <div class="page-header">
+    <div class="page-title">Filme</div>
+  </div>
+
+  @if (list().length > 0) {
+    <div class="cards">
+      @for (item of list(); track $index) {
+        <card
+          (click)="showDetails(item.url)"
+          [imageSrc]="getImageSrc(item.url)"
+          [label]="item.title"
+        >
+          <div description>
+            <div>Director: {{ item.director }}</div>
+            <div>Produzenten: {{ item.producer }}</div>
+            <div>Erscheinungsdatum: {{ item.releaseDate | date }}</div>
+          </div>
+        </card>
+      }
+    </div>
+  } @else {
+    <spinner></spinner>
+  }
+</div>

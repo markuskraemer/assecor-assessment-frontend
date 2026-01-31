@@ -1,0 +1,8 @@
+<header>
+  <app-header></app-header>
+</header>
+<main><router-outlet /></main>
+@if (showFooter()) {
+  <app-footer></app-footer>
+}
+<router-outlet name="overlay"></router-outlet>

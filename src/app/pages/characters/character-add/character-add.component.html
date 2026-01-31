@@ -1,0 +1,70 @@
+<div class="form-container">
+  <div class="background"></div>
+  <div class="panel">
+    <div class="title">Character hinzufügen</div>
+
+    <form [formGroup]="form">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="Name eingeben" />
+      @if (form.get('name')?.touched && form.get('name')?.invalid) {
+        <div class="error">Name ist erforderlich.</div>
+      }
+
+      <div class="grid-content">
+        <div class="field">
+          <label>Größe</label>
+          <input id="height" type="text" formControlName="height" placeholder="Meter" />
+        </div>
+
+        <div class="field">
+          <label>Gewicht</label>
+          <input id="mass" type="text" formControlName="mass" placeholder="Kg" />
+        </div>
+
+        <div class="field">
+          <label>Haarfarbe</label>
+          <input
+            id="hairColor"
+            type="text"
+            formControlName="hairColor"
+            placeholder="Haarfarbe eingeben"
+          />
+        </div>
+
+        <div class="field">
+          <label for="eyeColor">Augenfarbe</label>
+          <select id="eyeColor" formControlName="eyeColor">
+            @for (p of eyeColors; track $index) {
+              <option [value]="p">{{ p }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Geburtsjahr</label>
+          <input
+            id="birthYear"
+            type="text"
+            formControlName="birthYear"
+            placeholder="YYYY"
+            maxlength="4"
+          />
+        </div>
+
+        <div class="field">
+          <label for="gender">Geschlecht</label>
+          <select id="gender" formControlName="gender">
+            @for (p of genders; track $index) {
+              <option [value]="p">{{ p }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <div class="button cancel" (click)="onCancel()">Abbrechen</div>
+        <div class="button submit" (click)="onSubmit()">Character hinzufügen</div>
+      </div>
+    </form>
+  </div>
+</div>

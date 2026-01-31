@@ -1,0 +1,25 @@
+<div class="list-container">
+  <div class="page-header">
+    <div class="page-title">Planeten</div>
+  </div>
+
+  @if (list().length > 0) {
+    <div class="cards">
+      @for (item of list(); track $index) {
+        <card
+          (click)="showDetails(item.url)"
+          [imageSrc]="getImageSrc(item.url)"
+          [label]="item.name"
+        >
+          <div description>
+            <div>Durchmesser: {{ item.diameter }}</div>
+            <div>Klima: {{ item.climate }}</div>
+            <div>Einwohner: {{ item.population }}</div>
+          </div>
+        </card>
+      }
+    </div>
+  } @else {
+    <spinner></spinner>
+  }
+</div>

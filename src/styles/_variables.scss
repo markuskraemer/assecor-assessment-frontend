@@ -1,0 +1,21 @@
+:root {
+  --card-width: 300px;
+  --app-pd-left: 60px;
+  --app-pd-right: 42px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --card-width: 320px;
+    --app-pd-left: 130px;
+    --app-pd-right: 112px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --card-width: 424px;
+    --app-pd-left: 280px;
+    --app-pd-right: 262px;
+  }
+}

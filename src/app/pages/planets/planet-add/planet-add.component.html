@@ -1,0 +1,43 @@
+<div class="form-container">
+  <div class="background"></div>
+  <div class="panel">
+    <div class="title">Planet hinzufügen</div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="Name eingeben" />
+      @if (form.get('name')?.touched && form.get('name')?.invalid) {
+        <div class="error">Name ist erforderlich.</div>
+      }
+
+      <label for="type">Type</label>
+      <select id="type" formControlName="type">
+        @for (p of types; track $index) {
+          <option [value]="p">{{ p }}</option>
+        }
+      </select>
+
+      <label for="producer">Created by</label>
+      <select id="producer" formControlName="producer">
+        @for (p of producers; track $index) {
+          <option [value]="p">{{ p }}</option>
+        }
+      </select>
+
+      <label for="genre">Genre</label>
+      <textarea id="genre" formControlName="genre" placeholder="Science fiction"></textarea>
+
+      <label for="race">Race(s)</label>
+      <textarea
+        id="race"
+        formControlName="race"
+        placeholder="Namen mit Semikolon trennen"
+      ></textarea>
+
+      <div class="buttons">
+        <div class="button cancel" (click)="onCancel()">Abbrechen</div>
+        <div class="button submit" (click)="onSubmit()">Planet hinzufügen</div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="list-container">
+  <div class="page-header">
+    <div class="page-title">Charaktere</div>
+  </div>
+
+  @if (list().length > 0) {
+    <div class="cards">
+      @for (item of list(); track $index) {
+        <card
+          (click)="showDetails(item.url)"
+          [imageSrc]="getImageSrc(item.url)"
+          [label]="item.name"
+        >
+          <div description>
+            <div>Größe: {{ item.height }}</div>
+            <div>Gewicht: {{ item.mass }}</div>
+            <div>Geburtsjahr: {{ item.birthYear }}</div>
+          </div>
+        </card>
+      }
+    </div>
+  } @else {
+    <spinner></spinner>
+  }
+</div>

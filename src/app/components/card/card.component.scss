@@ -1,0 +1,52 @@
+@use 'styles/index' as *;
+
+card {
+  $pd: 24px;
+
+  display: grid;
+  grid-template-rows: 348px 1fr;
+  background: $gray;
+  width: var(--card-width);
+  height: 530px;
+
+  .image {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: $pd;
+  }
+
+  .label {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bold;
+    margin-top: 22px;
+    margin-bottom: 16px;
+  }
+
+  [description] {
+    font-size: 14px;
+    line-height: 17px;
+    width: calc(var(--card-width) - 2 * $pd);
+
+    div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+  }
+
+  .more {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: 22px;
+  }
+}

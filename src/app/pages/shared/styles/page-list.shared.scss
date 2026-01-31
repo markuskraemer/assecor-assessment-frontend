@@ -1,0 +1,22 @@
+@use 'styles/index' as *;
+
+.list-container {
+  @include fade-in;
+
+  display: block;
+
+  padding-left: var(--app-pd-left);
+  padding-right: var(--app-pd-right);
+  padding-bottom: 99px;
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--card-width), max-content));
+    justify-content: center;
+    gap: 35px;
+
+    card {
+      cursor: pointer;
+    }
+  }
+}
