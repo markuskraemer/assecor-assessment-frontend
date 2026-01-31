@@ -16,7 +16,7 @@ import { extractId } from '../../../core/utils/utls';
   selector: 'characters-list',
   imports: [CardComponent, SpinnerComponent],
   templateUrl: './character-list.component.html',
-  styleUrl: '../../shared/page-list.shared.scss',
+  styleUrl: '../../shared/styles/page-list.shared.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

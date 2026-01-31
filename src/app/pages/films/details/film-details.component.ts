@@ -17,12 +17,13 @@ import { DatePipe } from '@angular/common';
 import { SpinnerComponent } from '../../../components/spinner/spinner.component';
 import { getFilmImageSrc } from '../../shared/utils/imageUtils';
 import { isString } from '../../../core/utils/utls';
+import { NavService } from '../../../core/services/nav.service';
 
 @Component({
   selector: 'film-details',
   imports: [DetailsButtonsRowComponent, SlideshowComponent, DatePipe, SpinnerComponent],
   templateUrl: './film-details.component.html',
-  styleUrl: '../../shared/page-details.shared.scss',
+  styleUrl: '../../shared/styles/page-details.shared.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -30,6 +31,8 @@ export class FilmDetailsComponent {
   private readonly route = inject(ActivatedRoute);
   public readonly overlayService = inject(OverlayService);
   public readonly store = inject(SwapiStore);
+  public readonly navService = inject(NavService);
+
   public readonly getFilmImageSrc = getFilmImageSrc;
 
   public readonly id = toSignal(

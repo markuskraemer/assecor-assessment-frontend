@@ -17,6 +17,7 @@ import { SwapiStore } from '../../../core/store/swapi.store';
 import { SpinnerComponent } from '../../../components/spinner/spinner.component';
 import { StandardButtonComponent } from '../../../components/standard-button/standard-button.component';
 import { isString } from '../../../core/utils/utls';
+import { NavService } from '../../../core/services/nav.service';
 
 @Component({
   selector: 'planet-details',
@@ -27,7 +28,7 @@ import { isString } from '../../../core/utils/utls';
     StandardButtonComponent,
   ],
   templateUrl: './planet-details.component.html',
-  styleUrl: '../../shared/page-details.shared.scss',
+  styleUrl: '../../shared/styles/page-details.shared.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -35,6 +36,8 @@ export class PlanetDetailsComponent {
   private readonly route = inject(ActivatedRoute);
   public readonly overlayService = inject(OverlayService);
   public readonly store = inject(SwapiStore);
+  public readonly navService = inject(NavService);
+
   public readonly getPlanetImageSrc = getPlanetImageSrc;
 
   public readonly id = toSignal(

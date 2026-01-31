@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { FilmAddComponent } from './pages/films/film-add/film-add.component';
+import { PlanetAddComponent } from './pages/planets/planet-add/planet-add.component';
+import { CharacterAddComponent } from './pages/characters/character-add/character-add.component';
 
 export const routes: Routes = [
   /////////////////////////////
@@ -31,6 +33,16 @@ export const routes: Routes = [
   {
     path: 'add-film',
     component: FilmAddComponent,
+    outlet: 'overlay',
+  },
+  {
+    path: 'add-planet',
+    component: PlanetAddComponent,
+    outlet: 'overlay',
+  },
+  {
+    path: 'add-character',
+    component: CharacterAddComponent,
     outlet: 'overlay',
   },
 ];

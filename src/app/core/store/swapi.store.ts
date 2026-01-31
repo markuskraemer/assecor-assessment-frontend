@@ -23,8 +23,12 @@ const initialStarwarsState: SwapiState = {
   loadingUrls: [],
 };
 
-function findByUrl<T extends Item>(items: T[], id: number) {
+function findById<T extends Item>(items: T[], id: number) {
   return items.find((item) => extractId(item.url) === id);
+}
+
+function findByUrl<T extends Item>(items: T[], url: string) {
+  return items.find((item) => item.url === url);
 }
 
 export const SwapiStore = signalStore(
@@ -36,9 +40,10 @@ export const SwapiStore = signalStore(
     const notificationService = inject(NotificationService);
 
     return {
-      getFilmById: (id: number) => findByUrl(state.filmList(), id),
-      getCharacterById: (id: number) => findByUrl(state.characterList(), id),
-      getPlanetById: (id: number) => findByUrl(state.planetList(), id),
+      getFilmById: (id: number) => findById(state.filmList(), id),
+      getCharacterById: (id: number) => findById(state.characterList(), id),
+      getPlanetById: (id: number) => findById(state.planetList(), id),
+      getPlanetByUrl: (url: string) => findByUrl(state.planetList(), url),
 
       loadFilmList: () => {
         if (state.filmList().length > 0) {

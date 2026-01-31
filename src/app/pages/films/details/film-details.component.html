@@ -23,24 +23,22 @@
         <details-buttons-row
           [label]="'Charaktere:'"
           [buttonLabels]="['Luke Skywalker', 'C3-P0', 'R2D2']"
-          [urls]="film.characters"
-          (addClick)="overlayService.openOverlay('add-film')"
+          (addClick)="overlayService.openOverlay('add-character')"
+          (labelButtonClick)="navService.gotoDetails('characters', $event)"
         ></details-buttons-row>
         <details-buttons-row
           [label]="'Planeten:'"
-          [buttonLabels]="['Arid', 'Tatooine']"
-          [urls]="film.planets"
+          [buttonLabels]="['Tatooine', 'Alderaan']"
           (addClick)="overlayService.openOverlay('add-planet')"
+          (labelButtonClick)="navService.gotoDetails('planets', $event)"
         ></details-buttons-row>
         <details-buttons-row
           [label]="'Raumschiffe:'"
           [buttonLabels]="['Executor', 'Sentinel-class Landing craft', 'Death Star']"
-          [urls]="film.starships"
         ></details-buttons-row>
         <details-buttons-row
           [label]="'Fahrzeuge:'"
           [buttonLabels]="['Sand Crawler', 'Snowspeeder', 'AT-AT']"
-          [urls]="film.vehicles"
         ></details-buttons-row>
       </div>
     </div>

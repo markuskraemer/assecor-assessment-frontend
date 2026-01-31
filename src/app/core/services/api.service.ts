@@ -7,7 +7,6 @@ export class ApiService {
   private readonly http = inject(HttpClient);
 
   public get<T>(url: string) {
-    console.log('get At: ', this.baseUrl + url);
     return this.http.get<T>(this.baseUrl + url);
   }
 }

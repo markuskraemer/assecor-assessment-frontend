@@ -29,6 +29,7 @@ export class DetailsButtonsRowComponent {
   }
 
   @Output() public readonly addClick = new EventEmitter<void>();
+  @Output() public readonly labelButtonClick = new EventEmitter<number>();
 
   public readonly store = inject(SwapiStore);
 
@@ -40,5 +41,9 @@ export class DetailsButtonsRowComponent {
 
   public onAddClick() {
     this.addClick.emit();
+  }
+
+  public onLabelButtonClick(idx: number) {
+    this.labelButtonClick.next(idx);
   }
 }

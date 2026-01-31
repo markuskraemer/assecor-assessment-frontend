@@ -1,6 +1,6 @@
 @use 'styles/index' as *;
 
-film-add {
+.form-container {
   position: fixed;
   left: 0;
   top: 0;
@@ -46,7 +46,7 @@ film-add {
       line-height: 31px;
     }
 
-    input[type='text'],
+    input,
     textarea,
     select {
       width: 100%;
@@ -57,12 +57,16 @@ film-add {
       line-height: 21px;
       border: 2px solid #d0d0d080;
       border-radius: 4px;
-      background-color: #f1f1f180;
       box-sizing: border-box;
 
       &::placeholder {
         color: #969696;
       }
+    }
+
+    input,
+    textarea {
+      background-color: #f1f1f180;
     }
 
     textarea {

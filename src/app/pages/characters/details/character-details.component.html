@@ -15,7 +15,11 @@
         <div class="line"><b>Geburtsjahr:</b> {{ character.birthYear }}</div>
         <div class="line"><b>Geschlecht:</b> {{ character.gender }}</div>
         <div class="line row">
-          <b>Heimatplanet:</b> <standard-button [label]="character.homeworld"></standard-button>
+          <b>Heimatplanet:</b>
+          <standard-button
+            [label]="getHomeworld()?.name || '...'"
+            (click)="gotoHomeworldPlanet()"
+          ></standard-button>
         </div>
       </div>
       <div class="right">
@@ -25,8 +29,8 @@
         <details-buttons-row
           [label]="'Filme:'"
           [buttonLabels]="['Film 1', 'Film 2', 'Film 3', 'Film 4', 'Film 5']"
-          [urls]="character.films"
-          (addClick)="overlayService.openOverlay('add-character')"
+          (addClick)="overlayService.openOverlay('add-film')"
+          (labelButtonClick)="navService.gotoDetails('films', $event)"
         ></details-buttons-row>
         <details-buttons-row
           [label]="'Raumschiffe:'"

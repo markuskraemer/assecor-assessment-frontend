@@ -5,8 +5,8 @@ app-header {
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding-left: px2rem(280px);
-  padding-right: px2rem(262px);
+  padding-left: 280px;
+  padding-right: 262px;
   border-bottom: 1px solid rgba($fg-color, 0.15);
 
   .buttons {
@@ -42,7 +42,7 @@ app-header {
 
     .icon {
       position: absolute;
-      right: 0.75rem;
+      right: 12px;
       top: 50%;
       transform: translateY(-50%);
       pointer-events: none;

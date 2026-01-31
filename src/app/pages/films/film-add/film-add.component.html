@@ -1,42 +1,44 @@
-<div class="background"></div>
-<div class="panel">
-  <div class="title">Film hinzufügen</div>
+<div class="form-container">
+  <div class="background"></div>
+  <div class="panel">
+    <div class="title">Film hinzufügen</div>
 
-  <form [formGroup]="filmForm" (ngSubmit)="onSubmit()">
-    <label for="title">Titel</label>
-    <input id="title" type="text" formControlName="title" placeholder="Titel eingeben" />
-    @if (filmForm.get('title')?.touched && filmForm.get('title')?.invalid) {
-      <div class="error">Titel ist erforderlich.</div>
-    }
-    <label for="director">Director</label>
-    <input id="director" formControlName="director" type="text" placeholder="Director eingeben" />
-
-    <label for="produzent">Produzent</label>
-    <select id="produzent" formControlName="produzent">
-      @for (p of producers; track $index) {
-        <option [value]="p">{{ p }}</option>
+    <form [formGroup]="filmForm" (ngSubmit)="onSubmit()">
+      <label for="title">Titel</label>
+      <input id="title" type="text" formControlName="title" placeholder="Titel eingeben" />
+      @if (filmForm.get('title')?.touched && filmForm.get('title')?.invalid) {
+        <div class="error">Titel ist erforderlich.</div>
       }
-    </select>
+      <label for="director">Director</label>
+      <input id="director" formControlName="director" type="text" placeholder="Director eingeben" />
 
-    <label for="erscheinungsdatum">Erscheinungsdatum</label>
-    <input
-      id="erscheinungsdatum"
-      type="text"
-      formControlName="erscheinungsdatum"
-      placeholder="YYYY"
-      maxlength="4"
-    />
+      <label for="produzent">Produzent</label>
+      <select id="produzent" formControlName="produzent">
+        @for (p of producers; track $index) {
+          <option [value]="p">{{ p }}</option>
+        }
+      </select>
 
-    <label for="beschreibung">Beschreibung</label>
-    <textarea
-      id="beschreibung"
-      formControlName="beschreibung"
-      placeholder="Beschreibung"
-    ></textarea>
+      <label for="erscheinungsdatum">Erscheinungsdatum</label>
+      <input
+        id="erscheinungsdatum"
+        type="text"
+        formControlName="erscheinungsdatum"
+        placeholder="YYYY"
+        maxlength="4"
+      />
 
-    <div class="buttons">
-      <div class="button cancel" (click)="onCancel()">Abbrechen</div>
-      <div class="button submit" (click)="onSubmit()">Film hinzufügen</div>
-    </div>
-  </form>
+      <label for="descriptipon">Beschreibung</label>
+      <textarea
+        id="descriptipon"
+        formControlName="descriptipon"
+        placeholder="Beschreibung"
+      ></textarea>
+
+      <div class="buttons">
+        <div class="button cancel" (click)="onCancel()">Abbrechen</div>
+        <div class="button submit" (click)="onSubmit()">Film hinzufügen</div>
+      </div>
+    </form>
+  </div>
 </div>

@@ -18,7 +18,7 @@ import { getFilmImageSrc } from '../../shared/utils/imageUtils';
   selector: 'film-list',
   imports: [CardComponent, DatePipe, SpinnerComponent],
   templateUrl: './film-list.component.html',
-  styleUrl: '../../shared/page-list.shared.scss',
+  styleUrl: '../../shared/styles/page-list.shared.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

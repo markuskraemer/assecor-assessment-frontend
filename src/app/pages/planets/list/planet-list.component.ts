@@ -10,7 +10,7 @@ import { extractId } from '../../../core/utils/utls';
   selector: 'planet-list',
   imports: [CardComponent, SpinnerComponent],
   templateUrl: './planet-list.component.html',
-  styleUrl: '../../shared/page-list.shared.scss',
+  styleUrl: '../../shared/styles/page-list.shared.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

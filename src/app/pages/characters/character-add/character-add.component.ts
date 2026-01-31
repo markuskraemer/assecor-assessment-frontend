@@ -3,25 +3,30 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OverlayService } from '../../../core/services/overlay.service';
 
 @Component({
-  selector: 'film-add',
+  selector: 'character-add',
   imports: [ReactiveFormsModule],
-  templateUrl: './film-add.component.html',
-  styleUrl: '../../shared/styles/forms.shared.scss',
+  templateUrl: './character-add.component.html',
+  styleUrl: './character-add.component.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilmAddComponent {
+export class CharacterAddComponent {
   private readonly fb = inject(FormBuilder);
   private readonly overlayService = inject(OverlayService);
 
-  public readonly producers = ['George Lucas', 'Gary Kurtz', 'Rick McCallum'];
+  public readonly eyeColors = ['Gelb', 'Grün', 'Blau'];
+  public readonly genders = ['Male', 'Female', 'unknown', 'n/a'];
 
-  public readonly filmForm = this.fb.group({
-    title: ['', Validators.required],
+  public readonly form = this.fb.group({
+    name: ['', Validators.required],
     director: [''],
-    produzent: [this.producers[0], Validators.required],
-    erscheinungsdatum: ['', [Validators.pattern(/^\d{4}$/)]],
-    descriptipon: [''],
+    eyeColor: [this.eyeColors[0], Validators.required],
+    beschreibung: [''],
+    height: [''],
+    mass: [''],
+    hairColor: [''],
+    birthYear: [''],
+    gender: [this.genders[0]],
   });
 
   public onCancel() {
@@ -29,10 +34,10 @@ export class FilmAddComponent {
   }
 
   public onSubmit() {
-    if (this.filmForm.valid) {
+    if (this.form.valid) {
       this.overlayService.closeOverlay();
     } else {
-      this.filmForm.markAllAsTouched();
+      this.form.markAllAsTouched();
     }
   }
 }
