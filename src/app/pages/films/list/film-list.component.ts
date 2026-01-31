@@ -10,10 +10,12 @@ import { CardComponent } from '../../../components/card/card.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { extractId, getFilmImageSrc } from '../../shared/utils/utils';
 import { SwapiStore } from '../../../core/store/swapi.store';
+import { DatePipe } from '@angular/common';
+import { SpinnerComponent } from '../../../components/spinner/spinner.component';
 
 @Component({
   selector: 'film-list',
-  imports: [CardComponent],
+  imports: [CardComponent, DatePipe, SpinnerComponent],
   templateUrl: './film-list.component.html',
   styleUrl: './film-list.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -35,9 +37,9 @@ export class FilmListComponent implements OnInit {
   }
 
   public showDetails(url: string) {
-    const filmIdx = extractId(url);
-    if (filmIdx >= 0) {
-      this.router.navigate(['details', String(filmIdx)], { relativeTo: this.route });
+    const idx = extractId(url);
+    if (idx >= 0) {
+      this.router.navigate(['details', String(idx)], { relativeTo: this.route });
     }
   }
 

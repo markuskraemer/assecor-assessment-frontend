@@ -1,14 +1,17 @@
 @use 'styles/index' as *;
 
 card {
+  $card-width: 424px;
+  $pd: 24px;
+
   display: grid;
   grid-template-rows: 348px 1fr;
-  background: $gray; //  rgba(#bbbbbb, 0.24);
-  width: 424px;
+  background: $gray;
+  width: $card-width;
   height: 530px;
 
   img {
-    width: 100%;
+    width: $card-width;
     height: 100%;
     object-fit: cover;
   }
@@ -17,7 +20,7 @@ card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 24px;
+    padding-left: $pd;
   }
 
   .label {
@@ -25,12 +28,20 @@ card {
     line-height: 30px;
     font-weight: bold;
     margin-top: 22px;
+    margin-bottom: 16px;
   }
 
-  .description {
+  [description] {
     font-size: 14px;
     line-height: 17px;
-    margin-top: 16px;
+    width: calc($card-width - 2 * $pd);
+
+    div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
   }
 
   .more {

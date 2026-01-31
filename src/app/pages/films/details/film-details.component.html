@@ -10,7 +10,7 @@
       <div class="title">Details:</div>
       <div class="line"><b>Director:</b> {{ film.director }}</div>
       <div class="line"><b>Produzenten:</b> {{ film.producer }}</div>
-      <div class="line"><b>Erscheinungsdatum:</b> {{ film.releaseDate }}</div>
+      <div class="line"><b>Erscheinungsdatum:</b> {{ film.releaseDate | date }}</div>
       <div class="description">
         {{ film.openingCrawl }}
       </div>
@@ -43,4 +43,6 @@
       ></details-buttons-row>
     </div>
   </div>
+} @else {
+  <spinner></spinner>
 }

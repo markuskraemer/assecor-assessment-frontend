@@ -1,6 +1,6 @@
 <img [src]="imageSrc" />
 <div class="content">
   <div class="label">{{ label }}</div>
-  <div class="description">{{ description }}</div>
+  <ng-content select="[description]" class="description"></ng-content>
   <div class="more">Mehr Informationen...</div>
 </div>

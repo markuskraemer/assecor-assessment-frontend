@@ -2,13 +2,18 @@
   <div class="page-title">Filme</div>
 </div>
 
-<div class="cards">
-  @for (film of filmList(); track $index) {
-    <card
-      (click)="showDetails(film.url)"
-      [imageSrc]="getImageSrc(film.url)"
-      [label]="film.title"
-      [description]="'descripion'"
-    ></card>
-  }
-</div>
+@if (filmList().length > 0) {
+  <div class="cards">
+    @for (film of filmList(); track $index) {
+      <card (click)="showDetails(film.url)" [imageSrc]="getImageSrc(film.url)" [label]="film.title">
+        <div description>
+          <div>Director: {{ film.director }}</div>
+          <div>Produzenten: {{ film.producer }}</div>
+          <div>Erscheinungsdatum: {{ film.releaseDate | date }}</div>
+        </div>
+      </card>
+    }
+  </div>
+} @else {
+  <spinner></spinner>
+}
